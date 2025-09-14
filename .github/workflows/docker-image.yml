@@ -26,7 +26,7 @@ jobs:
     - name: Build Docker Image
       run: |
         docker build -t makicorp/docker-graphql:1.0.2 .
-      pus: |
+      push: |
         docker push makicorp/docker-graphql:1.0.2 .
 #    - name: Build the Docker image
 #      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
