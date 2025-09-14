@@ -21,10 +21,12 @@ jobs:
       env:
         DCOKER_USER: ${{ secrets.DOCKER_USER }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PWD }}
-      run:
-        echo "Login"
+      run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-        echo "Login completado"
-    
+    - name: Build Docker Image
+      run: |
+        docker build -t makicorp/docker-graphql:1.0.2 .
+      pus: |
+        docker push makicorp/docker-graphql:1.0.2 .
 #    - name: Build the Docker image
 #      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
